@@ -214,12 +214,12 @@ def dealelse(line,wordList,line_copy,Word_Basic):
 
 
 lineNumber=0   ##设置行数变量
-fileorgname=input("输入待检测文本路径：")##
-filewordsname=input("输入敏感词文件路径:")##
-ansname=input("输入答案存储路径:")##
-fileorg=open(fileorgname,encoding='utf8')##打开原文文件
-filewords=open(filewordsname,encoding='utf8')##打开敏感词表
-ans=open(ansname,mode='w')##设置答案路径
+m=[]
+fileorgname=input("输入敏感词文件，待检测文本，答案路径：")##
+fileorgname=fileorgname.split(" ")
+fileorg=open(fileorgname[1],encoding='utf8')##打开原文文件
+filewords=open(fileorgname[0],encoding='utf8')##打开敏感词表
+ans=open(fileorgname[2],mode='w')##设置答案路径
 p=Pinyin()##拼音声明
 radical = Radical(RunOption.Radical)##字符声明
 wordlist,apartlist,basiclist=preword(filewords)##得到敏感词派生表，敏感词偏旁部首表，敏感词初始表
@@ -253,7 +253,7 @@ fileorg.close()
 filewords.close()
 ans.close()
 #在行首加入total显示总数
-with open(ansname, 'r+') as f:
+with open(fileorgname[2], 'r+') as f:
     content = f.read()
     f.seek(0, 0)
     f.write('Total：'+str(num)+'\n'+content)
