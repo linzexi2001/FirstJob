@@ -1,0 +1,2 @@
+xpinyin==0.7.6
+cnradical==0.1.0
