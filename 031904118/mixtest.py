@@ -59,7 +59,7 @@ def dealelse(line,wordList,line_copy,Word_Basic):
                     g=p.get_pinyin(aword,"")
                     ##与初始的全拼一致
                     if g == p.get_pinyin(word, '') or word==p.get_initials(aword,'').lower():
-                        ans=ans+("<"+str(aword)+">")
+                        ans=ans+(" <"+str(aword)+"> ")
                         break
                     ##与初始的首字符替换一致
                     for num in range(aword.__len__()):
@@ -68,7 +68,7 @@ def dealelse(line,wordList,line_copy,Word_Basic):
                         t = re.sub(m[num], p.get_pinyin(aword[num], ''), m)
                         if t.lower()==p.get_pinyin(word,'').lower():
                             index1=1
-                            ans=ans+("<"+ aword+ ">")
+                            ans=ans+(" <"+ aword+ "> ")
 
                             break
                     if index1==1:
@@ -79,7 +79,7 @@ def dealelse(line,wordList,line_copy,Word_Basic):
                             pinyin_low=re.sub(everyword, p.get_initial(everyword, '').lower(), aword)
                             if p.get_pinyin(pinyin_low,"")==p.get_pinyin(word,'').lower():
                                 index2=1
-                                ans=ans+("<"+ aword+ ">")
+                                ans=ans+(" <"+ aword+ "> ")
 
                                 break
                     if index2==1:

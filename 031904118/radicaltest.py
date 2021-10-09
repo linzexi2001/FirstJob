@@ -26,7 +26,7 @@ def dealRadical(radicallist,line_copy2,Word_Basic):
                         if ischinese(h) and find(h)==word:
                             ##输出格式（）
                             ##删除行中输出内容
-                            ans=ans+("<"+h+ ">"+line_copy2[m.start():m.end()]+"\n")
+                            ans=ans+(" <"+h+ "> "+line_copy2[m.start():m.end()]+"\n")
                             break
                     line_copy2 = re.sub(line_copy2[m.start():m.end()],'',line_copy2,1)
                     ##当长度正好是初始敏感词长度的两倍减一，则需要输出前一个字符或者后一个字符
@@ -42,7 +42,7 @@ def dealRadical(radicallist,line_copy2,Word_Basic):
                             if ischinese(h) and find(h) == word:
                                 ##输出格式（）
                                 ##删除行中输出内容
-                                ans=ans+("<"+h+ ">"+line_copy2[m.start()-1:m.end()]+'\n')
+                                ans=ans+(" <"+h+ "> "+line_copy2[m.start()-1:m.end()]+'\n')
                                 break
                         line_copy2 = re.sub(line_copy2[m.start()-1:m.end()], '',line_copy2,1)
                     else:
@@ -52,14 +52,14 @@ def dealRadical(radicallist,line_copy2,Word_Basic):
 
                                  ##输出格式（）
                                  ##删除行中输出内容
-                                 ans=ans+("<"+h+">"+line_copy2[m.start():m.end()+1]+'\n')
+                                 ans=ans+(" <"+h+"> "+line_copy2[m.start():m.end()+1]+'\n')
                                  break
                         line_copy2 = re.sub(line_copy2[m.start():m.end()+1], '', line_copy2,1)
                 ##除去以上两种情况，剩下的情况是第一个字取到右边的拆分字，最后一字取到左边拆分字
                 else:
                     for h in Word_Basic:
                         if ischinese(h) and find(h)==word:
-                            ans=ans+("<"+ h+ ">"+line_copy2[m.start()-1:m.end() + 1]+'\n')
+                            ans=ans+(" <"+ h+ "> "+line_copy2[m.start()-1:m.end() + 1]+'\n')
                             line_copy2 = re.sub(line_copy2[m.start()-1:m.end()+1], '', line_copy2,1)
                             break
             ##research结果为空则之间跳出循环
