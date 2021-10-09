@@ -26,13 +26,13 @@ def main():
             if ans1 != None:
                 for a in ans1.split('\n'):
                     if a != '':
-                        ans.write("Line" + str(lineNumber)+ ":"+ a + "\n")
+                        ans.write( "\n"+"Line" + str(lineNumber)+ ":"+ a )
                         num += 1
             ##按格式输出所有非空ans
             if ans2 != None:
                 for a in ans2.split('\n'):
                     if a != '':
-                        ans.write("Line" + str(lineNumber)+ ":"+ a + "\n")
+                        ans.write('\n'+"Line" + str(lineNumber)+ ":"+ a  )
                         num += 1
         ##关闭文件
         fileorg.close()
@@ -42,7 +42,7 @@ def main():
         with open(sys.argv[3], 'r+',encoding='utf8') as f:
             content = f.read()
             f.seek(0, 0)
-            f.write('Total: '+str(num)+'\n'+content)
+            f.write('Total: '+str(num)+content)
         ans.close()
         print("敏感词检测完成，总共出现",num,"次敏感词")
     except :
